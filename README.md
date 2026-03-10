@@ -1,6 +1,9 @@
 # Frontend Mentor - QR code component solution
 
-This is my solution to the [QR code component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/qr-code-component-iux_sIO_H). It's a simple card layout that includes a QR code, heading, and descriptive text – great for practicing layout and typography with HTML & CSS.
+This is my solution to the [QR code component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/qr-code-component-iux_sIO_H). I originally built this challenge earlier as a simple HTML & CSS exercise.
+For this iteration, I rebuilt it using Vue to practice component structure and slots, while keeping the design faithful to the original challenge.
+
+The goal of this version was not only to recreate the layout, but also to explore how small UI components can be structured in a component-based architecture.
 
 ## Table of contents
 
@@ -17,37 +20,54 @@ This is my solution to the [QR code component challenge on Frontend Mentor](http
 
 ### Screenshot
 
-![Screenshot of the QR code component](./src/assets/images/screenshot.png)
+![Screenshot](./src/assets/images/screenshot.png)
 
 ### Links
 
-- Solution URL: [Frontend Mentor link](https://www.frontendmentor.io/solutions/responsive-qr-code-component-using-flexbox-and-css-variables-k62JR5igPu)
-- Live Site URL: [Live demo](https://qr-code-component-xi-ten.vercel.app/)
+- Solution URL: [Frontend Mentor solution](https://github.com/arne-witteler/qr-code-component-vue)
+- Live Site URL: [Live demo](https://qr-code-component-vue-beryl.vercel.app)
 
 ## My process
 
 ### Built with
 
-- Semantic HTML5
+- Vue 3
+- Vite
+- Semantic HTML 5
 - CSS custom properties
 - Flexbox
 - Mobile-first workflow
-- Visual alignment and spacing based on a provided design
+- component-based architecture
+- Vue slots for flexible content composition
 
 ### What I learned
 
-This project helped me refresh the fundamentals of responsive layout with Flexbox. I also practiced:
+Since I had already completed this challenge once using plain HTML and CSS, this version focused on exploring a Vue-based implementation.
 
-- How to center elements both horizontally and vertically using Flexbox
-- Using `box-sizing: border-box` to manage layout more predictably
-- Applying mobile-first thinking (e.g. with `max-width` and `vw` units)
-- Improving visual hierarchy with font weights and spacing
+Key things I practiced in this iteration:
+- Structuring UI using Vue components
+- Using slots to pass flexible content into reusable components
+- Separating layout components from content
+- Organizing files using a small atomic-style structure (molecules / organisms)
 
-```css
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+For example, the QrCodeCard component exposes slots for the title and description so the layout stays reusable while the text content can change.
+
 ```
+<template>
+  <div class="qr-code__card">
+    <div class="qr-code__image-wrapper">
+      <img class="qr-code__image" src="@/assets/images/image-qr-code.png" alt="QR Code" />
+    </div>
+    <div class="qr-code__text">
+      <h1 class="qr-code__title">
+        <slot name="title"></slot>
+      </h1>
+      <p class="qr-code__description">
+        <slot name="description"></slot>
+      </p>
+    </div>
+  </div>
+</template>
+```
+
+This approach helps keep layout, styling, and content responsibilities clearly separated.
