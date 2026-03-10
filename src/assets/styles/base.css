@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+:root {
+  --color-slate-900: hsl(218 44% 22%);
+  --color-slate-500: hsl(216 15% 48%);
+  --color-slate-300: hsl(212 45% 89%);
+  --color-white: hsl(0 0% 100%);
+
+  --font-family: 'Outfit', sans-serif;
+
+  --text-preset-1: normal 700 22px/120% 'Outfit', sans-serif;
+  --text-preset-2: normal 400 15px/140% 'Outfit', sans-serif;
+  --text-preset-3: normal 400 11px/100% 'Outfit', sans-serif;
+}
